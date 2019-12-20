@@ -20,6 +20,7 @@
           <ul id="people-list"> 
           </ul>
       <input placeholder="name" id="name" />
+      <input placeholder="score" id="score" />
       <button id="add-btn" class="btn btn-warning">Add Score</button>
     </form>
     </div>
@@ -34,21 +35,22 @@
 var addBtn = document.querySelector("#add-btn");
 var peopleListEl = document.querySelector("#people-list");
 var nameEl = document.querySelector("#name");
+var scoreEl = document.querySelector("#score");
 var closeEl = document.querySelector(".close");
 var saveBtn = document.querySelector("#save");
 
-var people = [{ name: "Bob" }];
+var people = [{ name: " " }];
 var currentId = 0;
 
 
 function addPersonToList(event) {
   event.preventDefault();
   var name = nameEl.value;
-  //var score = scoreEl.value; //score value
+  var score = scoreEl.value; //score value
   var li = document.createElement("li");
-  li.id = people.length;
-  li.innerHTML = name;
-  people.push({ name: name });
+  li.id = people.length + score.length;
+  li.innerHTML = name + ":  " + score;
+  people.push({ name: name } + { score: score});
   peopleListEl.append(li);
 }
 

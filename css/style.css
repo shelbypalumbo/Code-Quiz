@@ -3,3 +3,13 @@
                 margin-top: 5%;
                 margin-bottom: 5%;
 }
+
+.btn-warning {  margin: 5px;
+                width: 100%;
+}
+
+#submit {   margin-top: 10px;
+}
+#questionText { margin: 10px;
+                font-size: 24px;
+}
