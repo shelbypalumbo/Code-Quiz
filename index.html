@@ -10,11 +10,11 @@
     <!--myStyling--><link type="text/css" rel="stylesheet" href="assets/css/style.css">
     <!--DL_Bootstrap--><link type="text/css" rel="stylesheet" href="assets/bootstrap/css/bootstrap-responsive.css">
 </head>
-<body style="background-image: url(assets/images/cork-board.png)">
+<body onload="hideQuestions()" style="background-image: url(assets/images/cork-board.png)">
         
         <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand" href="highscores.html">View Highscores</a>
-            <a class="navbar-brand">Time: 75 seconds<p class="time"></p></a>
+            <a class="navbar-brand">Time: <p class="time"></p></a>
         </nav>
 
         <div class="container">
@@ -33,26 +33,23 @@
                         </ul>
                         <b>Good Luck!</b>
                 </p>
-            </div>  
-                <hr>
-
                 <div>
-                    <a href="questions.html" id ="startBtn" class="btn btn-success">Start Quiz</a>
-                </div>  
-
+                    <button onclick="start(); questAndTime(); showQuestions();" id="startBtn" class="btn btn-success">Start Quiz</a>
+                </div> 
+            </div> 
+        <div id="question-container">
+            <div id="questionText"></div>
+            <div id="choices">
+                <button id="abtn" class="btn btn-warning choice" value="a"><span>A: </span></button><br>
+                <button id="bbtn" class="btn btn-warning choice" value="b"><span>B: </span></button><br>
+                <button id="cbtn" class="btn btn-warning choice" value="c"><span>C: </span></button><br>
+                <button id="dbtn" class="btn btn-warning choice" value="d"><span>D: </span></button><br> 
+            </div>  
+            </div>
+                <hr>
         </div>     
 
 <script src="assets/js/questions.js"></script>
-<script src="assets/js/script.js"></script>
+
 </body>
 </html>
-
-
-
-
-
-
-<!-- <div id="quiz">
-                <div id="question" style="display: none;">Question:</div>
-                <div id="counter"> 75 </div>
-            

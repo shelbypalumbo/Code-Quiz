@@ -61,8 +61,8 @@ function setTime() {
  var options = ["","","",""];
  var nextQuestion = 0;
  
- document.querySelector(".choice").addEventListener("click",checkAns);
- document.querySelector("#startBtn").addEventListener("click",quizQuestions);
+ //document.querySelector(".choice").addEventListener("click",checkAns);
+ //document.querySelector("#startBtn").addEventListener("click",quizQuestions);
  
  
  
@@ -73,7 +73,36 @@ function setTime() {
    quizQuestions();
  };
  
+
+ function start() {
+  var x = document.getElementById("intro");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+function hideQuestions(){
+  var x = document.getElementById("question-container");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+function showQuestions(){
+  var x = document.getElementById("question-container");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  } 
+}
+
  function quizQuestions(){
+   start();
    question = questions[nextQuestion].title;
    answer = questions[nextQuestion].answer;
    for ( var i = 0; i < questions[nextQuestion].choices.length; i++ ){
@@ -87,7 +116,9 @@ function setTime() {
  }
  
  
- //Check answer function****
+ /* Functions I did not get to work
+ 
+ //Check answer function
  function checkAns(){
  if ( question.choices === questions.answer){ 
      alert("Correct!");
@@ -97,30 +128,15 @@ function setTime() {
        wrongAns();
    }
  }
- 
- //Next question *********
+
  function nextQuestion(){
-  question = questions[nextQuestion].title;
-  answer = questions[nextQuestion].answer;
-  for ( var i = 0; i < questions[nextQuestion].choices.length; i++ ){
-  options[i] = questions[nextQuestion].choices[i];}
-  
-  questionBox.append(question);
-  choiceA.append(questions[1].choices[0]);
-  choiceB.append(questions[1].choices[1]);
-  choiceC.append(questions[1].choices[2]);
-  choiceD.append(questions[1].choices[3]);
-   }
+
+}
  
- 
-   
- //If the answer is wrong this function is called
- /*function wrongAns() {
-   if( questions.choices != questions.answer ) {
-     timeEl.textContent = secondsLeft - 15;
-     sendMessage();
-   }
- }*/
+
+function resetQuestion(){
+
+}*/
  
  
 
