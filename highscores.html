@@ -52,11 +52,11 @@ function addPersonToList(event) {
   li.id = people.length + score.length;
   li.innerHTML = name + ":  " + score;
   people.push({ name: name } + { score: score});
-  peopleListEl.append(li);
+  peopleListEl.append(li);  
 }
 
     addBtn.addEventListener("click", addPersonToList);
-    peopleListEl.addEventListener("click", handleClick);
+    //peopleListEl.addEventListener("click", handleClick);
 
 
 
