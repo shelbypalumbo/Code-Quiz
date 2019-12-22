@@ -75,11 +75,11 @@ function setTime() {
  
 
  function start() {
-  var x = document.getElementById("intro");
-  if (x.style.display === "none") {
-    x.style.display = "block";
+  var v = document.getElementById("intro");
+  if (v.style.display === "none") {
+    v.style.display = "block";
   } else {
-    x.style.display = "none";
+    v.style.display = "none";
   }
 }
 
@@ -93,16 +93,15 @@ function hideQuestions(){
 }
 
 function showQuestions(){
-  var x = document.getElementById("question-container");
-  if (x.style.display === "block") {
-    x.style.display = "none";
+  var y = document.getElementById("question-container");
+  if (y.style.display === "block") {
+    y.style.display = "none";
   } else {
-    x.style.display = "block";
+    y.style.display = "block";
   } 
 }
 
  function quizQuestions(){
-   start();
    question = questions[nextQuestion].title;
    answer = questions[nextQuestion].answer;
    for ( var i = 0; i < questions[nextQuestion].choices.length; i++ ){
