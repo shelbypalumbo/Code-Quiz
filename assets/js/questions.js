@@ -61,9 +61,8 @@ function setTime() {
  var options = ["","","",""];
  var nextQuestion = 0;
  
- //document.querySelector(".choice").addEventListener("click",checkAns);
- //document.querySelector("#startBtn").addEventListener("click",quizQuestions);
- 
+ //document.getElementsByClassName("choice").addEventListener("click",checkAns());
+
  
  
  //Start button calls the timer and question functions
@@ -115,12 +114,11 @@ function showQuestions(){
  }
  
  
- /* Functions I did not get to work
+ /*Functions I did not get to work
  
  //Check answer function
  function checkAns(){
- if ( question.choices === questions.answer){ 
-     alert("Correct!");
+ if ( questions.choices === questions.answer){ 
     nextQuestion();
    } else {
        alert("Incorrect");
