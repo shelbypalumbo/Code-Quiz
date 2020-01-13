@@ -29,7 +29,7 @@ var questions = [
 //----------------------Timer Variables------------------------------------------------------------------
  //var score = 0;
  var timeEl = document.querySelector(".time");
- var secondsLeft = 10;
+ var secondsLeft = 75;
  var timerInterval
   //-----------------------TIMER----------------------------------------------------------------------
 function setTime() {
