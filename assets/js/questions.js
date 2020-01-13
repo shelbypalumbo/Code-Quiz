@@ -3,43 +3,51 @@ var questions = [
   {
       title: "Commonly used data types DO NOT include:",
       choices: ["strings", "booleans", "alerts", "numbers"],
-      answer: "alerts"
+      answer: "c"
   },
   {
       title: "The condition in an if / else statement is enclosed within ____.",
       choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-      answer: "parentheses"
+      answer: "c"
   },
   {
       title: "You call a ____ to run a task/procedure.",
       choices: ["method", "object", "function", "constant"],
-      answer: "function"
+      answer: "c"
     },
     {
       title: "What does DOM stand for?",
       choices: ["Document Object Model", "Deployment Object Method", "Document Occassion Model", "Deployed Object Model"],
-      answer: "Document Object Model"
+      answer: "a"
     },
     {
       title: "What makes a web page interactive?",
       choices: ["CSS", "JavaScript", "HTML","None of the above"],
-      answer: "JavaScript"
+      answer: "b"
     },
 ];
 //----------------------Timer Variables------------------------------------------------------------------
  //var score = 0;
  var timeEl = document.querySelector(".time");
- var secondsLeft = 75;
-
+ var secondsLeft = 10;
+ var timerInterval
   //-----------------------TIMER----------------------------------------------------------------------
 function setTime() {
-  var timerInterval = setInterval(function() {
+   timerInterval = setInterval(function() {
     secondsLeft--;
     timeEl.textContent = secondsLeft + " seconds left.";
       if ( secondsLeft === 0 ) {
         clearInterval(timerInterval);
         sendMessage(); 
+        for (i=0; i < questions.length; i++){
+          if(questions[i].answer == storedAns[i]){
+            console.log("answer" + i + "is correct");
+          }else{
+            console.log("answer" + i + "is not correct");
+          }
+        }
        }
+
      }, 1000);
  }
      
@@ -56,6 +64,7 @@ function setTime() {
  var choiceC = document.getElementById("cbtn");
  var choiceD = document.getElementById("dbtn");
  
+ var storedAns = [];
  var answer = "";
  var question = ""; 
  var options = ["","","",""];
@@ -103,16 +112,44 @@ function showQuestions(){
  function quizQuestions(){
    question = questions[nextQuestion].title;
    answer = questions[nextQuestion].answer;
-   for ( var i = 0; i < questions[nextQuestion].choices.length; i++ ){
-   options[i] = questions[nextQuestion].choices[i];}
-   
-   questionBox.append(question);
-   choiceA.append(questions[0].choices[0]);
-   choiceB.append(questions[0].choices[1]);
-   choiceC.append(questions[0].choices[2]);
-   choiceD.append(questions[0].choices[3]);
+
+   choiceA.textContent= questions[nextQuestion].choices[0];
+   choiceB.textContent= questions[nextQuestion].choices[1];
+   choiceC.textContent= questions[nextQuestion].choices[2];
+   choiceD.textContent= questions[nextQuestion].choices[3];
+
+   questionBox.textContent= question;
+
  }
  
+ $("#question-container button").on("click", function (event) {
+  event.preventDefault();
+
+  var selectChoice = $(event.target).val();
+  console.log(selectChoice);
+
+
+  if (nextQuestion == (questions.length-1)){
+    clearInterval(timerInterval);
+    for (i=0; i < questions.length; i++){
+      if(questions[i].answer == storedAns[i]){
+        console.log("answer" + i + "is correct");
+      }else{
+        console.log("answer" + i + "is not correct");
+      }
+    }
+    console.log("end game");
+  }else{
+  nextQuestion++;
+  storedAns.push(selectChoice);
+  quizQuestions();}
+
+console.log(storedAns);
+ })
+
+
+
+
  
  /*Functions I did not get to work
  
