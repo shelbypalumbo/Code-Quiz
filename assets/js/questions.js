@@ -35,7 +35,7 @@ function setTime() {
   timerInterval = setInterval(function () {
     secondsLeft--;
     timeEl.textContent = secondsLeft + " seconds left.";
-    
+
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
       sendMessage();
@@ -67,7 +67,7 @@ var choiceD = document.getElementById("dbtn");
 var storedAns = [];
 var answers = "";
 var question = "";
-var nextQuestion= 0;
+var nextQuestion = 0;
 
 
 //-----------Start button calls the timer and question functions----------------------------------------------
@@ -77,7 +77,7 @@ function questAndTime() {
   quizQuestions();
 };
 
-
+//----------------------Display quiz question container-----------------------------------------------------------
 function start() {
   var v = document.getElementById("intro");
   if (v.style.display === "none") {
@@ -86,7 +86,7 @@ function start() {
     v.style.display = "none";
   }
 }
-
+//-----------------------Hide first quiz question-------------------------------------------------------------
 function hideQuestions() {
   var x = document.getElementById("question-container");
   if (x.style.display === "none") {
@@ -95,7 +95,7 @@ function hideQuestions() {
     x.style.display = "none";
   }
 }
-
+//-----------------------Show first quiz question-------------------------------------------------------------
 function showQuestions() {
   var y = document.getElementById("question-container");
   if (y.style.display === "block") {
@@ -105,6 +105,7 @@ function showQuestions() {
   }
 }
 
+//-----------------------------Quiz Questions------------------------------------------------------------------
 function quizQuestions() {
   question = questions[nextQuestion].title;
   answers = questions[nextQuestion].answer;
@@ -116,6 +117,8 @@ function quizQuestions() {
   questionBox.textContent = question;
 
 }
+
+
 //-------Event Listener for when a choice is selected, move to the next question and store the answer
 $("#question-container button").on("click", function (event) {
   event.preventDefault();
