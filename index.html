@@ -1,58 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Code Quiz</title>
-    <!--Bootstrap--><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!--Fonts--><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous"> 
-    <!--myStyling--><link type="text/css" rel="stylesheet" href="assets/css/style.css">
-    <!--DL_Bootstrap--><link type="text/css" rel="stylesheet" href="assets/bootstrap/css/bootstrap-responsive.css">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--Fonts-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
+        integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <!--myStyling-->
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css">
+    <!--DL_Bootstrap-->
+    <link type="text/css" rel="stylesheet" href="assets/bootstrap/css/bootstrap-responsive.css">
 </head>
-<body onload="hideQuestions()" style="background-image: url(assets/images/cork-board.png)">
-        
-        <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="highscores.html">View Highscores</a>
-            <a class="navbar-brand">Time: <p class="time"></p></a>
-        </nav>
 
-        <div class="container">
-            <h1>Coding Quiz</h1> 
-                <hr>
+<body onload="hideQuestions()" style="background-image: url(assets/images/gaming-pattern.png)">
 
-            <div id="intro">
-                <p> The topic is coding! Test your knowledge and your speed with this multiple choice quiz.
-                    <h4>Here are the rules:</h4>
-                        <ul>
-                            <li>You will have 75 seconds to answer all five questions. </li>
-                            <li>If a question is answer incorrectly, the user will lose 15 seconds
-                            on the timer. </li>
-                            <li>Try to complete the quiz before the time runs out.</li>
-                            <li>The less time on the clock on completetion, the high your score!</li>
-                        </ul>
-                        <b>Good Luck!</b>
-                </p>
-                <div>
-                    <button onclick="start(); questAndTime(); showQuestions();" id="startBtn" class="btn btn-success">Start Quiz</a>
-                </div> 
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="highscores.html">View Highscores</a>
+        <a class="navbar-brand">Time: <p class="time"></p></a>
+    </nav>
+
+    <div class="container">
+        <h1>Coding Quiz</h1>
+        <hr>
+
+        <div id="intro">
+            <p> The topic is coding! Test your knowledge and your speed with this multiple choice quiz.
+                <h4>Here are the rules:</h4>
+                <ul>
+                    <li>You will have 75 seconds to answer all five questions. </li>
+                    <li>If a question is answer incorrectly, the user will lose 15 seconds
+                        on the timer. </li>
+                    <li>Try to complete the quiz before the time runs out.</li>
+                    <li>The less time on the clock on completetion, the high your score!</li>
+                </ul>
+                <b>Good Luck!</b>
+            </p>
+            <div>
+                <button onclick="start(); questAndTime(); showQuestions();" id="startBtn" class="btn btn-success">Start
+                    Quiz</a>
             </div>
-                
-   
+        </div>
+
+
         <div id="question-container">
             <div id="questionText"></div>
             <div id="choices">
                 <button id="abtn" class="btn btn-warning choice" value="a"><span>A: </span></button><br>
                 <button id="bbtn" class="btn btn-warning choice" value="b"><span>B: </span></button><br>
                 <button id="cbtn" class="btn btn-warning choice" value="c"><span>C: </span></button><br>
-                <button id="dbtn" class="btn btn-warning choice" value="d"><span>D: </span></button><br> 
-            </div>  
+                <button id="dbtn" class="btn btn-warning choice" value="d"><span>D: </span></button><br>
+            </div>
         </div>
-                <hr>
-        </div>     
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="assets/js/questions.js"></script>
+        <hr>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/questions.js"></script>
 
 </body>
+
 </html>
