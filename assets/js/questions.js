@@ -7,8 +7,8 @@ var questions = [
   },
   {
     title: "The condition in an if / else statement is enclosed within ____.",
-    choices: ["quotes", "curly brackets", "parenthesis", "square brackets"],
-    answer: "c",
+    choices: ["quotes", "parenthesis", "square brackets", "curly brackets"],
+    answer: "b",
   },
   {
     title: "You call a ____ to run a task/procedure.",
@@ -24,12 +24,14 @@ var questions = [
     title: "What makes a web page interactive?",
     choices: ["CSS", "JavaScript", "HTML", "None of the above"],
     answer: "b",
-  },
+  }
 ];
+
 //----------------------Timer Variables---------------------------------------------------------------
 var timeEl = document.querySelector(".time");
 var secondsLeft = 75;
 var timerInterval;
+
 //--------------------------TIMER----------------------------------------------------------------------
 function setTime() {
   timerInterval = setInterval(function () {
@@ -39,14 +41,6 @@ function setTime() {
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
       sendMessage();
-
-      for (i = 0; i < questions.length; i++) {
-        if (questions[i].answer == storedAns[i]) {
-          console.log("answer" + i + "is correct");
-        } else {
-          console.log("answer" + i + "is not correct");
-        }
-      }
     }
   }, 1000);
 }
@@ -55,6 +49,7 @@ function sendMessage() {
   timeEl.textContent = " ";
   clearTimeout();
 }
+
 
 //----------------------Question Variables---------------------------------------------------------------------
 
@@ -68,7 +63,9 @@ var storedAns = [];
 var answers = "";
 var question = "";
 var nextQuestion = 0;
-
+var correctAns = 0;
+var highScore = 0;
+var highestScore = document.getElementById("highestScore");
 
 //-----------Start button calls the timer and question functions----------------------------------------------
 function questAndTime() {
@@ -77,7 +74,7 @@ function questAndTime() {
   quizQuestions();
 };
 
-//----------------------Display quiz question container-----------------------------------------------------------
+//--------------Display quiz question container on "Start Quiz"-----------------------------------------------
 function start() {
   var v = document.getElementById("intro");
   if (v.style.display === "none") {
@@ -86,7 +83,7 @@ function start() {
     v.style.display = "none";
   }
 }
-//-----------------------Hide first quiz question-------------------------------------------------------------
+//-----------------------Hides first quiz question-------------------------------------------------------------
 function hideQuestions() {
   var x = document.getElementById("question-container");
   if (x.style.display === "none") {
@@ -104,7 +101,26 @@ function showQuestions() {
     y.style.display = "block";
   }
 }
-
+//----------------------------Hide High Scores----------------------------------------------------------------
+function hideScores() {
+  var x = document.getElementById("highScores-container");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+//---------------------------Show High Scores-----------------------------------------------------------------
+function showScores(user) {
+  var userScore = document.getElementById("scores");
+  var y = document.getElementById("highScores-container");
+  if (y.style.display === "block") {
+    y.style.display = "none";
+  } else {
+    y.style.display = "block";
+  }
+  userScore.prepend(user + " scored a " + highScore + "!");
+}
 //-----------------------------Quiz Questions------------------------------------------------------------------
 function quizQuestions() {
   question = questions[nextQuestion].title;
@@ -115,39 +131,39 @@ function quizQuestions() {
   choiceC.textContent = questions[nextQuestion].choices[2];
   choiceD.textContent = questions[nextQuestion].choices[3];
   questionBox.textContent = question;
-
 }
 
 
 //-------Event Listener for when a choice is selected, move to the next question and store the answer
 $("#question-container button").on("click", function (event) {
   event.preventDefault();
-
   var selectChoice = $(event.target).val();
+  storedAns.push(selectChoice);
   console.log(selectChoice);
 
-
-  if (nextQuestion == (questions.length - 1)) {
+  if (questions[nextQuestion].answer == storedAns[nextQuestion]) {
+    console.log("answer " + nextQuestion + " is correct");
+  } else if(questions[nextQuestion].answer != storedAns[nextQuestion]) {
+    secondsLeft -= 15;
+    console.log(secondsLeft);
+    console.log("answer " + nextQuestion + " is not correct");
+  }
+  if (nextQuestion == (questions.length -1)) {
     clearInterval(timerInterval);
-    for (i = 0; i < questions.length; i++) {
-      if (questions[i].answer == storedAns[i]) {
-        console.log("answer" + i + "is correct");
-      } else {
-        console.log("answer" + i + "is not correct");
-      }
+    if (secondsLeft >= highScore){
+      highScore = secondsLeft;
     }
+    var user = prompt("Log your score with a Username: ");
+    alert("Your Score: " + highScore);
+    hideQuestions();
+    showScores(user);
+    highestScore.append(highScore);
   } else {
-    nextQuestion++;
-    storedAns.push(selectChoice);
+    nextQuestion++
     quizQuestions();
   }
-  console.log(storedAns);
+  console.log(highScore);
+  console.log(storedAns); 
 })
-
-
-
-
-
-
 
 

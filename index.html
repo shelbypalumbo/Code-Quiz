@@ -14,14 +14,12 @@
         integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <!--My CSS-->
     <link type="text/css" rel="stylesheet" href="assets/css/style.css">
-    <!--DL_Bootstrap-->
-    <link type="text/css" rel="stylesheet" href="assets/bootstrap/css/bootstrap-responsive.css">
 </head>
 
-<body onload="hideQuestions()">
+<body onload="hideQuestions(); hideScores()">
 
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="highscores.html">View Highscores</a>
+   <div>High Score: <span id="highestScore"></span></div>
         <a class="navbar-brand">Time: <p class="time"></p></a>
     </nav>
 
@@ -41,8 +39,7 @@
                 <b>Good Luck!</b>
             </p>
             <div>
-                <button onclick="start(); questAndTime(); showQuestions();" id="startBtn" class="btn btn-success">Start
-                    Quiz</a>
+                <button onclick="start(); questAndTime(); showQuestions();" id="startBtn" class="btn btn-success">Start Quiz</a>
             </div>
         </div>
    
@@ -50,10 +47,17 @@
         <div id="question-container">
             <div id="questionText"></div>
             <div id="choices">
-                <button id="abtn" class="btn btn-warning choice" value="a"><span>A: </span></button><br>
-                <button id="bbtn" class="btn btn-warning choice" value="b"><span>B: </span></button><br>
-                <button id="cbtn" class="btn btn-warning choice" value="c"><span>C: </span></button><br>
-                <button id="dbtn" class="btn btn-warning choice" value="d"><span>D: </span></button><br>
+                <button id="abtn" class="btn btn-warning choice" value="a"></button><br>
+                <button id="bbtn" class="btn btn-warning choice" value="b"></button><br>
+                <button id="cbtn" class="btn btn-warning choice" value="c"></button><br>
+                <button id="dbtn" class="btn btn-warning choice" value="d"></button><br>
+            </div>
+        </div>
+       
+        <div id="highScores-container">
+            <h3>Scores:</h3>
+            <div id="scores">
+
             </div>
         </div>
         <hr>
