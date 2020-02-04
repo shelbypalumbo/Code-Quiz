@@ -3,7 +3,7 @@ https://shelbypalumbo.github.io/Code-Quiz/
 
 
 ## User Story
-This a coding student, I want to test my basic knowledge of JavaScript as I move through my courses, so that I can monitor what I need to work on.
+As a coding student, I want to test my basic knowledge of JavaScript as I move through my courses, so that I can monitor what I need to improve on.
 
 
 ## Usage
