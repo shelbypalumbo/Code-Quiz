@@ -59,6 +59,7 @@ var choiceB = document.getElementById("bbtn");
 var choiceC = document.getElementById("cbtn");
 var choiceD = document.getElementById("dbtn");
 
+var userData = [];
 var storedAns = [];
 var answers = "";
 var question = "";
@@ -101,6 +102,7 @@ function showQuestions() {
     y.style.display = "block";
   }
 }
+
 //----------------------------Hide High Scores----------------------------------------------------------------
 function hideScores() {
   var x = document.getElementById("highScores-container");
@@ -143,27 +145,31 @@ $("#question-container button").on("click", function (event) {
 
   if (questions[nextQuestion].answer == storedAns[nextQuestion]) {
     console.log("answer " + nextQuestion + " is correct");
-  } else if(questions[nextQuestion].answer != storedAns[nextQuestion]) {
+  } else if (questions[nextQuestion].answer != storedAns[nextQuestion]) {
     secondsLeft -= 15;
     console.log(secondsLeft);
     console.log("answer " + nextQuestion + " is not correct");
   }
-  if (nextQuestion == (questions.length -1)) {
+  if (nextQuestion == (questions.length - 1)) {
     clearInterval(timerInterval);
-    if (secondsLeft >= highScore){
+    if (secondsLeft >= highScore) {
       highScore = secondsLeft;
     }
     var user = prompt("Log your score with a Username: ");
     alert("Your Score: " + highScore);
     hideQuestions();
+
     showScores(user);
     highestScore.append(highScore);
+    userScore.prepend(user + " scored a " + highScore + "!");
+    localStorage.setItem("user-scores", highScore);
+
   } else {
     nextQuestion++
     quizQuestions();
   }
   console.log(highScore);
-  console.log(storedAns); 
+  console.log(storedAns);
 })
 
 
