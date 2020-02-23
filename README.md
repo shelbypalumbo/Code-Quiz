@@ -16,7 +16,7 @@ If an incorrect answer is selected, the user will lose 15 seconds. If the user s
 ![Start Page](assets/images/scoreAlert.png)
 
 The username input and the final score of the player will then appear under the highscores list. If the user received the highest score of all users so far, their score will appear in the left corner of the screen.
-![Score Page](assets/images/highScore.png)
+![Score Page](assets/images/highScores.png)
 
 ### Programming Languages Used
 * HTML
